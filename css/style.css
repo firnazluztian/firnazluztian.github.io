@@ -105,6 +105,20 @@ footer {
   transform: translateY(-50%);
 }
 
+.nav-review {
+  background-color: transparent;
+  box-shadow: none;
+  margin-bottom: 20px;
+}
+
+.nav-review img {
+  border-radius: 10px;
+}
+
+.row img {
+  border-radius: 10px;
+}
+
 /*RESPONSIVE DESIGN*/
 @media screen and (max-width: 680px) {
   .container {
