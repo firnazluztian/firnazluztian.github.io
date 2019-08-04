@@ -103,6 +103,7 @@ footer {
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
 
 /*RESPONSIVE DESIGN*/
 @media screen and (max-width: 680px) {
