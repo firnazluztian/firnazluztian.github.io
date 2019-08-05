@@ -68,8 +68,9 @@ section {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#section-map img {
+#section-map iframe {
   width: 100%;
+  height: 500px;
 }
 
 footer {
@@ -106,9 +107,8 @@ footer {
 }
 
 .nav-review {
-  background-color: transparent;
+  background-color: lightgrey;
   box-shadow: none;
-  margin-bottom: 20px;
 }
 
 .nav-review img {
@@ -116,7 +116,7 @@ footer {
 }
 
 .row img {
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 /*RESPONSIVE DESIGN*/
@@ -127,5 +127,13 @@ footer {
 
   .col-sm {
     text-align: center;
+  }
+
+  .row-temp {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  #des-box {
+    box-shadow: none;
   }
 }

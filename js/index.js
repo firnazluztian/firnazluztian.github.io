@@ -57,6 +57,10 @@ function httpRequestAsync(url, callback)
     httpRequest.send();
 }
 
+function onClickAppleBtn() {
+  alert("ios version is coming soon!");
+}
+
 main();
 
 // get user default location
