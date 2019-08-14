@@ -1,18 +1,27 @@
 const appKey = "e7242ddfc676b988309b540c75e0144e";
 
-let searchButton = document.getElementById("search-btn");
-let searchInput = document.getElementById("search-txt");
-let cityName = document.getElementById("city-name");
-let icon = document.getElementById("icon");
-let temperature = document.getElementById("temp");
-let humidity = document.getElementById("humidity-div");
-let searchLink;
+var searchButton = document.getElementById("search-btn");
+var searchInput = document.getElementById("search-txt");
+var cityName = document.getElementById("city-name");
+var icon = document.getElementById("icon");
+var temperature = document.getElementById("temp");
+var humidity = document.getElementById("humidity-div");
+var longitude = document.getElementById("longitude");
+var latitude = document.getElementById("latitude");
+var country = document.getElementById("country");
+var desc = document.getElementById("description");
+var windspeed = document.getElementById("windspeed");
+var tempMax = document.getElementById("tempMax");
+var tempMin = document.getElementById("tempMin");
+var map = document.getElementById("map");
+var searchLink;
 
 searchButton.addEventListener("click", findWeatherDetails);
 searchInput.addEventListener("keyup", enterPressed);
 
 function main() {
   initDisplay();
+  getIframeLangLat();
 }
 
 // INITIAL DISPLAY
@@ -40,6 +49,21 @@ function findWeatherDetails() {
 function theResponse(response) {
   let jsonObject = JSON.parse(response);
   cityName.innerHTML = jsonObject.name;
+
+  country.innerHTML = ", " +jsonObject.sys.country;
+  desc.innerHTML = jsonObject.weather[0].main + ", " + jsonObject.weather[0].description;
+
+  windspeed.innerHTML = jsonObject.wind.speed + "m/s";
+
+  tempMax.innerHTML = parseInt(jsonObject.main.temp_max - 273) + "°";
+  tempMin.innerHTML = parseInt(jsonObject.main.temp_min - 273) + "°";
+
+  longitude.innerHTML = jsonObject.coord.lon;
+  latitude.innerHTML = jsonObject.coord.lat;
+
+  map.src = "https://maps.darksky.net/@temperature," + jsonObject.coord.lat + "," + jsonObject.coord.lon + ",4.js?embed=true&timeControl=true&fieldControl=true&defaultField=emoji";
+
+  // 4.js?embed=true&timeControl=true&fieldControl=true&defaultField=temperature&defaultUnits=_c
   icon.src = "http://openweathermap.org/img/w/" + jsonObject.weather[0].icon + ".png";
   temperature.innerHTML = parseInt(jsonObject.main.temp - 273) + "°";
   humidity.innerHTML = jsonObject.main.humidity + "%";
