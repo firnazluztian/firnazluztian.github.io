@@ -880,6 +880,7 @@ input:-moz-placeholder {
 }
 .filtr-item {
     width: 33.25%;
+    height: auto;
     /*padding: 0;*/
 }
 

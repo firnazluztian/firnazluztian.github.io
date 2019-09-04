@@ -162,9 +162,14 @@
 	.welcome-col .cd-headline {
 		font-size: 14px;
 	}
+	
 }
 @media only screen and (max-width:375px) {
 	.about-col .btn-black {
 		margin-top: 10px;
+	}
+	.filtr-item {
+	    width: 50%;
+	    /*padding: 0;*/
 	}
 }
