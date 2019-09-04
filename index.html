@@ -610,11 +610,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="container">
                     <div class="col-default">
                         <div class="row">
                             <div id="form-messages"></div>
-                            <form id="ajax-contact" method="post" action="php/contact.php" onclick="onClickComingSoon()">
+                            <form id="ajax-contact" method="post" action="php/contact.php">
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
                                 </div>
@@ -625,20 +625,20 @@
                                     <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="numbar" name="subject" placeholder="Phone" required>
+                                    <input type="number" class="form-control" id="numbar" name="subject" placeholder="Phone" required>
                                 </div>
                                 <div class="col-md-12">
                                     <textarea class="form-control textarea-hight-full" id="message" name="message" rows="6" placeholder="Message" required></textarea>
-                                    <button class="btn btn-default simple-default-btn" type="submit">Sent Message</button>
+                                    <button class="btn btn-default simple-default-btn" type="submit" onclick="onClickComingSoon()">Sent Message</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                     <div class="col-default">
                         <div id="map" style="width:100%; height:350px;"></div>
-                    </div>
+                    </div -->>
                 </div>
             </div>
         </div>
