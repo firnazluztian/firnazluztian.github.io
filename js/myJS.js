@@ -1,3 +1,3 @@
-function clickBtn() {
-	alert("This function is coming soon");
+function onClickComingSoon() {
+	alert("Stay tuned!");
 }
