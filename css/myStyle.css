@@ -1,10 +1,19 @@
 #profile-pic {
-	border-radius: 10px; 
-	border: 0px solid black;
+	border-radius: 5px; 
+	border: 2px solid lightgrey;
+	}
+
+#profile-pic:hover {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+	}
 
 #competencies-list li {
 	background-color: lightgrey;
 	padding: 5px;
+	
 }
+
+#competencies-list li:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
