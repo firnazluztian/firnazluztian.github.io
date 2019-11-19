@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- my CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=B612&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/jquery-ui.css">
+
+    <title>Home</title>
+  </head>
+  <body> 
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+        <img src="https://cdn4.iconfinder.com/data/icons/mini-material-design-weather-icons-multi-color/32/day_hail_light-512.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Stormy
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="mobileapp.html">
+                <img src="http://www.myiconfinder.com/uploads/iconsets/5516c8ca06c37823b422a912c1929e1d.png" width="20" height="20" class="d-inline-block align-top" alt="">
+                App
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactus.html">Contact us</a>
+            </li>
+            <a class="navbar-brand" href="https://github.com/firnazluztian/firnazluztian.github.io" title="go to github">
+              <img src="http://aux.iconspalace.com/uploads/github-icon-128-550769063.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            </a> 
+        </div>
+      </div>
+    </nav>
+  
+    <header>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container">
+          <form class="form-horizontal" onSubmit="return false" id="search-bar">
+            <input class="form-control mr-sm-2" id="search-txt" type="search" placeholder="input city.." aria-label="Search">
+            <a id="search-btn" href="#"><i class="fas fa-search"></i></a>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <section id="section-weather">
+      <div class="container">
+        <div class=".grid-container">
+
+          <div class="row row-temp" id="temp-box">
+            <div class="col-lg">
+              <div class="navbar-brand" href="index.html">
+              <img id="icon" src="https://cdn4.iconfinder.com/data/icons/mini-material-design-weather-icons-multi-color/32/day_hail_light-512.png" width="80" height="80" class="d-inline-block align-top" alt="">
+              <div id="temp" class="d-inline-block align-top">--</div>
+              </div>
+              <p class="d-inline-block" id="city-name">--</p><p class="d-inline-block" id="country">--</p>
+              <p id="description">Humid and mostly cloudy throughout the day.</p>
+            </div>
+          </div>
+          
+          <div class="row row-temp">
+            <div class="col-md des-box box-hover">
+              <div>Humidity: <div class="d-inline-block" id="humidity-div">--</div></div>
+              <div>Wind Speed: <div class="d-inline-block" id="windspeed">--</div></div>
+            </div>
+            <div class="col-md des-box box-hover">
+              <div>Temp max: <div class="d-inline-block" id="tempMax">--</div></div>
+              <div>Temp min: <div class="d-inline-block" id="tempMin">--</div></div>
+            </div>
+            <div class="col-md des-box box-hover">
+              <div>Longitude: <div class="d-inline-block" id="longitude">--</div></div>
+              <div>Latitude: <div class="d-inline-block" id="latitude">--</div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="section-map">
+      <iframe id="map"></iframe>
+    </section>
+
+    <footer>
+      <div class="container">
+        &copy; 2019 firnazluztian.github.io
+      </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- my JS -->
+    <script src="js/index.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/searchCity.js"></script>
+  </body>
+</html>
