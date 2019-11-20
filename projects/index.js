@@ -18,7 +18,7 @@ const ProjectData = [
         tech: "HTML, CSS, Javascript"
     }
 ]
-p
+
 function Header (props) {
   return (
     <div>
