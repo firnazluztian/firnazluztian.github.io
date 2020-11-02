@@ -63,7 +63,7 @@
 /* Others */
 .container-shadow {
   border-radius: 10px;
-  padding: 50px;
+  padding: 2em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -77,5 +77,15 @@ section hr {
   }
   .container-shadow {
     box-shadow: none;
+  }
+  #certification img {
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+  }
+  .portfolio-item img {
+    height: auto;
+    width: 100%;
+    object-fit: contain;
   }
 }

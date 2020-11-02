@@ -119,7 +119,8 @@ input:-moz-placeholder {
 }
 
 .section-default {
-  padding: 120px 0 90px;
+  /* padding: 120px 0 90px; */
+  padding: 2em 0;
   position: relative;
 }
 .col-default {
