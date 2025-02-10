@@ -5,3 +5,11 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+module.exports = {
+  assetPrefix: process.env.NODE_ENV === 'production'
+    ? 'https://firnazluztian.github.io/'
+    : '',
+  // Optionally, add exportTrailingSlash if you need trailing slashes:
+  // exportTrailingSlash: true,
+}

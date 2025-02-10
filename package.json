@@ -2,12 +2,12 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://firnazluztian.github.io/",
+  "homepage": "https://firnazluztian.github.io/portfolio",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d out",
     "start": "next start",
     "lint": "next lint"
   },
