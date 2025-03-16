@@ -6,7 +6,7 @@ import { resume } from "@/constants/resume";
 
 export const Navigation = () => {
   const [activeSection, setActiveSection] = useState("home");
-  const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden] = useState(true);
   const { downloadLink } = resume;
 
   const scrollToSection = (sectionId: string) => {
