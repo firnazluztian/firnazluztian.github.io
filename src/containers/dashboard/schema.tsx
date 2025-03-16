@@ -1,8 +1,13 @@
 import dynamic from "next/dynamic";
 import { SchemaItem } from "./schema.type";
-const Header = dynamic(() => import("@/components/layout/Header").then(mod => mod.Header), { ssr: false });
-const AboutMe = dynamic(() => import("@/containers/about-me").then(mod => mod.AboutMe), { ssr: false });
-const Projects = dynamic(() => import("@/containers/projects").then(mod => mod.Projects), { ssr: false });
+
+// Dynamic imports for code splitting
+const Header = dynamic(() => import("@/components/layout/Header").then((mod) => mod.Header), { ssr: false });
+const AboutMe = dynamic(() => import("@/containers/about-me").then((mod) => mod.AboutMe), { ssr: false });
+const Experience = dynamic(() => import("@/containers/experience").then((mod) => mod.Experience), { ssr: false });
+const Certifications = dynamic(() => import("@/containers/certifications").then((mod) => mod.Certifications), { ssr: false });
+const Activities = dynamic(() => import("@/containers/activities").then((mod) => mod.Activities), { ssr: false });
+const Projects = dynamic(() => import("@/containers/projects").then((mod) => mod.Projects), { ssr: false });
 
 export const contentSchema: SchemaItem[] = [
   {
@@ -10,16 +15,41 @@ export const contentSchema: SchemaItem[] = [
     id: "home",
     showTitle: false,
     children: <Header />,
-    styles: "bg-[url(/img/bg.jpg)] max-sm:bg-center bg-top"
+    styles: "bg-[url(/img/bg.jpg)] max-sm:bg-center bg-top p-0 object-cover",
   },
   {
-    title: "About me",
+    title: "About",
     id: "about",
+    showTitle: false,
     children: <AboutMe />,
+    styles: "min-h-screen bg-white",
   },
   {
     title: "Experience",
-    id: "projects",
-    children: <Projects />,
+    id: "experience",
+    showTitle: true,
+    children: <Experience />,
+    styles: "min-h-screen bg-gray-50",
   },
-];
+  {
+    title: "Side Projects",
+    id: "projects",
+    showTitle: true,
+    children: <Projects />,
+    styles: "min-h-screen bg-white",
+  },
+  {
+    title: "Activities",
+    id: "activities",
+    showTitle: true,
+    children: <Activities />,
+    styles: "min-h-screen bg-gray-50",
+  },
+  {
+    title: "Certifications",
+    id: "certifications",
+    showTitle: true,
+    children: <Certifications />,
+    styles: "min-h-screen bg-white",
+  },
+] as const;
