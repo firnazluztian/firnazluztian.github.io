@@ -22,7 +22,7 @@ export const Header = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="z-20 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
             Hi, I am{" "}
             <TypeWriter texts={texts} className="text-theme inline-block" />
           </h1>

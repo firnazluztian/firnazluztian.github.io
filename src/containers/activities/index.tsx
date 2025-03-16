@@ -17,7 +17,7 @@ export const Activities = () => {
           <motion.div
             key={index}
             ref={ref}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: index * 0.2 }}
             className="mb-16"
@@ -26,7 +26,7 @@ export const Activities = () => {
               {activity.img.map((img, imgIndex) => (
                 <motion.div
                   key={imgIndex}
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 1, scale: 0.9 }}
                   animate={inView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.5, delay: imgIndex * 0.1 }}
                   className="relative aspect-square rounded-md overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
