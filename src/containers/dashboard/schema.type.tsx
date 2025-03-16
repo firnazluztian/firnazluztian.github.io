@@ -6,4 +6,5 @@ export interface SchemaItem {
   showTitle?: boolean;
   children?: ReactNode;
   styles?: string;
+  fullWidth?: boolean;
 }
