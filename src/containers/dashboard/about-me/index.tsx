@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Icon } from "@iconify/react";
 import { resume } from "@/constants/resume";
-// import Image from "next/image";
 
 export const AboutMe = () => {
   const { qualifications } = resume.projects;

@@ -3,11 +3,11 @@ import { SchemaItem } from "./schema.type";
 
 // Dynamic imports for code splitting
 const Header = dynamic(() => import("@/components/layout/Header").then((mod) => mod.Header), { ssr: false });
-const AboutMe = dynamic(() => import("@/containers/about-me").then((mod) => mod.AboutMe), { ssr: false });
-const Experience = dynamic(() => import("@/containers/experience").then((mod) => mod.Experience), { ssr: false });
-const Certifications = dynamic(() => import("@/containers/certifications").then((mod) => mod.Certifications), { ssr: false });
-const Activities = dynamic(() => import("@/containers/activities").then((mod) => mod.Activities), { ssr: false });
-const Projects = dynamic(() => import("@/containers/projects").then((mod) => mod.Projects), { ssr: false });
+const AboutMe = dynamic(() => import("@/containers/dashboard/about-me").then((mod) => mod.AboutMe), { ssr: false });
+const Experience = dynamic(() => import("@/containers/dashboard/experience").then((mod) => mod.Experience), { ssr: false });
+const Certifications = dynamic(() => import("@/containers/dashboard/certifications").then((mod) => mod.Certifications), { ssr: false });
+const Activities = dynamic(() => import("@/containers/dashboard/activities").then((mod) => mod.Activities), { ssr: false });
+const Projects = dynamic(() => import("@/containers/dashboard/projects").then((mod) => mod.Projects), { ssr: false });
 
 export const contentSchema: SchemaItem[] = [
   {

@@ -3,6 +3,7 @@ import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import { useState } from "react";
 import { resume } from "@/constants/resume";
+import { useRouter } from "next/navigation";
 
 interface ProjectImage {
   src: string;
@@ -16,6 +17,8 @@ export const Projects = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const router = useRouter();
 
   const separateImages = (images: string[]) => {
     return images.reduce<{
@@ -117,6 +120,18 @@ export const Projects = () => {
             </motion.div>
           );
         })}
+
+        {/* Centered Check Demo Apps Button */}
+        <div className="flex justify-center mt-8">
+          <motion.a
+            onClick={() => router.push("/project")}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-theme text-white px-6 py-2 rounded-full font-medium hover:bg-opacity-90 transition-all duration-200 cursor-pointer"
+          >
+            Check demo apps
+          </motion.a>
+        </div>
       </div>
 
       {/* Image Modal */}
