@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { resume } from "@/constants/resume";
 import { useRouter } from "next/navigation";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 interface ProjectImage {
   src: string;
@@ -67,6 +68,18 @@ export const Projects = () => {
                 </h3>
                 <p className="text-gray-600 text-base sm:text-lg">
                   {project.description}
+                </p>
+                <p className="text-base sm:text-lg text-theme flex items-center gap-2 mt-2 cursor-pointer">
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Check Demo
+                    </a>
+                  )}
+                  <Icon icon="mdi:rocket" className="w-4 h-4" />
                 </p>
               </div>
 
