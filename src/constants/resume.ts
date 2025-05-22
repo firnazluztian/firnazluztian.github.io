@@ -1,10 +1,12 @@
+import { calculateYearsOfExperience } from "../utils";
+
 export const resume = {
   downloadLink:
     "https://docs.google.com/document/d/1TqtCslIiSuBjtmp9slNIkWSJ-nji97vdDGQkpw6JFn8/export?format=pdf",
   aboutMe: {
     title: "About Me",
     description:
-      "Software Engineer with five years of experience in building high-performance, scalable web applications across both enterprise environments and agile startups. Expertise in React, Next.js, TypeScript, and Tailwind CSS, with a strong track record of optimizing UX, performance, and maintainability. Experienced in remote and on-site work, adapting to global teams and time zones.",
+      `Software Engineer with ${calculateYearsOfExperience(2020)} years of experience in building high-performance, scalable web applications across both enterprise environments and agile startups. Expertise in React, Next.js, TypeScript, and Tailwind CSS, with a strong track record of optimizing UX, performance, and maintainability. Experienced in remote and on-site work, adapting to global teams and time zones.`,
     competencies: [
       "Problem Solving",
       "Logical Reasoning",
@@ -40,18 +42,29 @@ export const resume = {
     ],
     experiences: [
       {
+        company: "Tixia OTA",
+        location: "Jakarta, Indonesia",
+        position: "Software Engineer (React)",
+        companyIcon: "/img/tixia.png",
+        descriptions: [
+          "Managed the development and maintenance of Tixia's high-traffic hotel and flight booking applications, including backoffice systems, ensuring seamless operation.",
+          "Led the creation and implementation of a comprehensive React-based design system, improving development efficiency by 25% and ensuring brand consistency.",
+          "Oversaw codebase management, repository organization, and conducted thorough code reviews for both front-end and back-end services.",
+          "Optimized application performance and responsiveness for high-traffic OTA systems, reducing load times by 15%.",
+          "Actively engaged with users to gather feedback, translate requirements, and enhance the overall functionality of the OTA system in an Agile environment.",
+        ],
+      },
+      {
         company: "Telkom Indonesia",
         location: "Jakarta, Indonesia",
         position: "Software Engineer (React)",
         companyIcon: "/img/telkom.png",
         descriptions: [
-          "Managed and coordinated multiple cross-functional teams, delivering features for Telkom super app product (MyTEnS) that are now used by internal subsidiaries serving millions of users.",
-          "Contributed to the development of a high-traffic dashboard using React, Next.js, and Redux, improving page load time by 40% and increasing user engagement by 25%.",
-          "Contributed greatly in the development of design systems, dynamic forms and atomic architecture, enhancing maintainability, scalability,  and reducing development time for new features by 30%.",
-          "Collaborated with cross-functional teams, including product owners, backend developers and designers, to ensure seamless user experience and technical alignment using Scrum methodology.",
-          "Implemented CI/CD pipelines using Jenkins, reducing deployment time, minimizing human error in releases.",
+          "Managed cross-functional teams to deliver features for Telkom's MyTEnS super app, serving millions, and contributed to a high-traffic dashboard improving load time by 40%.",
+          "Contributed significantly to the development of design systems, dynamic forms, and atomic architecture, reducing new feature development time by 30%.",
+          "Implemented CI/CD pipelines using Jenkins, which reduced deployment time and minimized human error in releases.",
           "Conducted code reviews and mentored junior developers, leading to a 15% improvement in overall code quality.",
-          "Integrated performance monitoring tools (Google Analytics 4, ReactGA), leading to optimizations that boosted page speed, user experience and user satisfaction.",
+          "Integrated performance monitoring tools (Google Analytics 4) to identify and implement optimizations, boosting page speed and user satisfaction.",
         ],
       },
       {
@@ -60,8 +73,11 @@ export const resume = {
         position: "Software Engineer (React)",
         companyIcon: "/img/oro.png",
         descriptions: [
-          "Worked in an agile startup within the fintech sector, tackling complex security challenges and driving performance optimizations and enhancing user experience.",
-          "Implemented a robust CRUD Chart of Accounts UI with React/Redux, TypeScript, Integrated Google Analytics, Python with flask for the back-end. Worked with SCSS, TS, React (Hook, Reach/router, ReactGA, Axios), MongoDB, Flask, PyMongo, Blueprint.js, Figma, Notion, Postman.",
+          "Operated in an agile fintech startup, developing secure and high-performance financial applications.",
+          "Engineered a robust CRUD Chart of Accounts UI using React, Redux, and TypeScript, enhancing data management efficiency.",
+          "Drove front-end performance optimizations, reducing page load times by 20%, and mitigated complex security challenges.",
+          "Developed and maintained RESTful APIs with Python Flask, integrating with MongoDB for data persistence.",
+          "Collaborated cross-functionally with product and design teams, translating requirements into intuitive interfaces and ensuring system reliability through API testing.",
         ],
       },
       {
@@ -70,7 +86,11 @@ export const resume = {
         position: "Software Engineer (Android)",
         companyIcon: "/img/addon.jpeg",
         descriptions: [
-          "Developed Android mobile app for a health insurance project, enhancing user experience, maintainability. Crafted responsive, visually appealing user interfaces using native Android SDK, Java, Material Design, SQLite.",
+          "Developed a critical Android mobile application for a health insurance project, enhancing user experience and maintainability.",
+          "Crafted highly responsive and visually appealing user interfaces using native Android SDK, Java, and Material Design, increasing user engagement by 15%.",
+          "Implemented robust data persistence solutions with SQLite for offline capabilities and optimized app performance for efficient data retrieval.",
+          "Collaborated with cross-functional teams throughout the software development lifecycle, delivering high-quality features on schedule.",
+          "Ensured code quality and maintainability through regular code reviews and adherence to Android development best practices.",
         ],
       },
     ],
