@@ -134,6 +134,20 @@ export const resume = {
     ],
     sideProjects: [
       {
+        title: "ChainVault",
+        description:
+          "ChainVault is a blockchain-powered storage system built on the Internet Computer — offering secure, decentralized file storage. ChainVault provides a trustless, on-chain file storage system. Built on the Internet Computer, it delivers high-speed decentralized storage while offering intelligent content understanding.",
+        demo: "https://github.com/firnazluztian/ChainVault",
+        link: "https://github.com/firnazluztian/ChainVault",
+        imgs: [
+          '/img/web/cv-bg1.png',
+          '/img/web/cv-bg2.png',
+          '/img/web/cv-bg3.png',
+          '/img/web/cv1.jpg',
+          '/img/web/cv2.jpg',
+        ],
+      },
+      {
         title: "Hotel Booking Platform",
         description:
           "A NextJS-based hotel booking platform that allows users to search, filter, and book hotel rooms using SSR fetching and server actions.",

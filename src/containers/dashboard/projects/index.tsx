@@ -33,7 +33,10 @@ export const Projects = () => {
           img.includes("p1") ||
           img.includes("p2") ||
           img.includes("p3") ||
-          img.includes("p4");
+          img.includes("p4") ||
+          img.includes("cv1") ||
+          img.includes("cv2") ||
+          img.includes("potrait");
 
         const imageObj = { src: img, isPortrait };
         if (isPortrait) {
@@ -69,18 +72,26 @@ export const Projects = () => {
                 <p className="text-gray-600 text-base sm:text-lg">
                   {project.description}
                 </p>
-                <p className="text-base sm:text-lg text-theme flex items-center gap-2 mt-2 cursor-pointer">
-                  {project.demo && (
+                {project.demo && <p className="text-base sm:text-lg text-theme flex items-center gap-2 mt-2 cursor-pointer">
                     <a
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Check Demo
-                    </a>
-                  )}
+                    Check Demo
+                  </a>
                   <Icon icon="mdi:rocket" className="w-4 h-4" />
-                </p>
+                </p>}
+                {project.link && <p className="text-base sm:text-lg text-theme flex items-center gap-2 mt-2 cursor-pointer">
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Check Code
+                    </a>
+                  <Icon icon="mdi:github" className="w-4 h-4" />
+                </p>}
               </div>
 
               {/* Portrait Images */}
