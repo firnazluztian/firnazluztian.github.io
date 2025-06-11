@@ -137,7 +137,7 @@ export const resume = {
         title: "ChainVault",
         description:
           "ChainVault is a blockchain-powered storage system built on the Internet Computer — offering secure, decentralized file storage. ChainVault provides a trustless, on-chain file storage system. Built on the Internet Computer, it delivers high-speed decentralized storage while offering intelligent content understanding.",
-        demo: "https://github.com/firnazluztian/ChainVault",
+        demo: "https://zmumb-qqaaa-aaaaj-a2bkq-cai.icp0.io/",
         link: "https://github.com/firnazluztian/ChainVault",
         imgs: [
           '/img/web/cv-bg1.png',
