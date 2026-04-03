@@ -6,7 +6,7 @@ export const resume = {
   aboutMe: {
     title: "About Me",
     description:
-      `Software Engineer with ${calculateYearsOfExperience(2020)} years of experience in building high-performance, scalable web applications across both enterprise environments and agile startups. Expertise in React, Next.js, TypeScript, and Tailwind CSS, with a strong track record of optimizing UX, performance, and maintainability. Experienced in remote and on-site work, adapting to global teams and time zones.`,
+      `Software Engineer with ${calculateYearsOfExperience(2020)} years of experience engineering high-scale web ecosystems across enterprise and startup environments. Expert in React, Next.js, and TypeScript, with a focus on system design, modular architectures, and scalable design systems that drive 40% gains in development efficiency. Proven leader in technical roadmapping, mentorship, and performance engineering, optimizing Core Web Vitals to directly impact user retention and business growth.`,
     competencies: [
       "Problem Solving",
       "Logical Reasoning",
@@ -46,12 +46,13 @@ export const resume = {
         location: "Jakarta, Indonesia",
         position: "Software Engineer (React)",
         companyIcon: "/img/tixia.png",
-        descriptions: [
-          "Managed the development and maintenance of Tixia's high-traffic hotel and flight booking applications, including backoffice systems, ensuring seamless operation.",
-          "Led the creation and implementation of a comprehensive React-based design system, improving development efficiency by 25% and ensuring brand consistency.",
-          "Oversaw codebase management, repository organization, and conducted thorough code reviews for both front-end and back-end services.",
-          "Optimized application performance and responsiveness for high-traffic OTA systems, reducing load times by 15%.",
-          "Actively engaged with users to gather feedback, translate requirements, and enhance the overall functionality of the OTA system in an Agile environment.",
+        "descriptions": [
+          "Architected and led the frontend ecosystem for a multi-tenant OTA suite (Customer Web, Back-office, Internal Ops), ensuring high availability and system resilience for thousands of monthly active users.",
+          "Engineered a scalable, Atomic Design-based System that served as the 'single source of truth' across all platforms; reduced UI delivery cycles by 40% and eliminated design debt across engineering pods.",
+          "Designed a modular Payment & Checkout Architecture, abstracting gateway logic to support seamless Xendit integration and multi-provider hotel/flight APIs (Voltras, MG, Panorama).",
+          "Optimized Critical Path Performance and Core Web Vitals, implementing code-splitting strategies and aggressive caching that reduced Time to Interactive (TTI) by 35% and increased booking conversion rates.",
+          "Spearheaded Technical Excellence initiatives, standardizing ESLint configurations, unit testing mandates, and automated CI/CD checks, reducing production regressions by 25%.",
+          "Engineered a Dynamic Metadata & SEO Engine utilizing Next.js SSR and SSG to boost organic discoverability by 20% while maintaining real-time tracking accuracy via GA4 and Meta Pixel."
         ],
       },
       {
