@@ -1,8 +1,56 @@
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useInView } from "framer-motion";
 import { Icon } from "@iconify/react";
 
 import { useEffect, useState } from "react";
+
+export const revealUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+export const revealLeft: Variants = {
+  hidden: { opacity: 0, x: -24 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.55, ease: "easeOut" },
+  },
+};
+
+export const revealRight: Variants = {
+  hidden: { opacity: 0, x: 24 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.55, ease: "easeOut" },
+  },
+};
+
+export const staggerContainer = (stagger = 0.12): Variants => ({
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: stagger,
+      delayChildren: 0.05,
+    },
+  },
+});
+
+export const panelReveal: Variants = {
+  hidden: { opacity: 0, y: 18, scale: 0.98 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.45, ease: "easeOut" },
+  },
+};
 
 interface TypeWriterProps {
   texts: string[];
@@ -117,4 +165,41 @@ export const MotionIconIn = ({
       <Icon icon={item} width={size} height={size} />
     </motion.li>
   ));
+};
+
+export const MotionCount = ({
+  value,
+  suffix = "",
+  className = "",
+}: {
+  value: number;
+  suffix?: string;
+  className?: string;
+}) => {
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    let rafId = 0;
+    const startAt = performance.now();
+    const duration = 1200;
+
+    const tick = (time: number) => {
+      const progress = Math.min((time - startAt) / duration, 1);
+      setDisplay(Math.round(progress * value));
+
+      if (progress < 1) {
+        rafId = window.requestAnimationFrame(tick);
+      }
+    };
+
+    rafId = window.requestAnimationFrame(tick);
+    return () => window.cancelAnimationFrame(rafId);
+  }, [value]);
+
+  return (
+    <motion.span className={className} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
+      {display}
+      {suffix}
+    </motion.span>
+  );
 };

@@ -1,6 +1,6 @@
-import { DashboardContainer } from "../dashboard"
+import Portfolio from "../portfolio"
 
 export const RootContainer = () => {
 
-  return <DashboardContainer />
+  return <Portfolio />
 }

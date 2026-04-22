@@ -34,10 +34,12 @@ export const resume = {
       {
         title: "Bachelor of Science",
         subtitle: "Concentration in Software Engineering",
+        location: "Texas, USA",
       },
       {
         title: "Master of Information Technology",
         subtitle: "Concentration in Computing and Networking",
+        location: "Singapore",
       },
     ],
     experiences: [
