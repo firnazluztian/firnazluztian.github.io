@@ -40,11 +40,22 @@ const itemVariants = {
 const sectionAnchors = [
   { id: "home", label: "Intro" },
   { id: "about", label: "About" },
+  { id: "vocabulary", label: "Vocabulary" },
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
   { id: "intel", label: "Intel" },
   { id: "contact", label: "Contact" },
 ];
+
+const renderMarqueeItems = (items: string[]) =>
+  items.map((item, index) => (
+    <span
+      key={`${item}-${index}`}
+      className="hover:bg-gray-200 inline-flex items-center rounded-full border border-gray-300 bg-gray-100 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.08em] text-slate-700"
+    >
+      {item}
+    </span>
+  ));
 
 export default function Portfolio() {
   const data = useMemo(() => getPortfolioData(), []);
@@ -150,7 +161,7 @@ export default function Portfolio() {
         title={data.about.title}
         description="Dense, technical breakdown of approach, competencies, and stack proficiency."
       >
-        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid gap-6 grid-cols-1">
           <TerminalWindowFrame title="about.context" command="cat ./about.md">
             <motion.div
               initial="hidden"
@@ -195,39 +206,56 @@ export default function Portfolio() {
             </motion.div>
           </TerminalWindowFrame>
 
-          <div className="space-y-4">
-            <TerminalWindowFrame
-              title="education.log"
-              command="tail -f education.txt"
-            >
-              <div className="space-y-4">
-                {data.education.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-xl border border-slate-200 bg-slate-50 p-4"
-                  >
-                    <p className="text-sm font-semibold text-slate-900">
-                      {item.title}
-                    </p>
-                    <p className="mt-1 text-sm text-slate-600">
-                      {item.subtitle}
-                    </p>
-                    {item.location && (
-                      <p className="mt-1 text-xs font-mono uppercase tracking-[0.12em] text-emerald-700/90">
-                        {item.location}
-                      </p>
-                    )}
-                  </div>
-                ))}
+          <TerminalWindowFrame title="skills.log" command="tail -f skills.txt" noPadding>
+            <div className="space-y-3 overflow-hidden border-y border-none bg-none py-3">
+              <div className="portfolio-marquee-row">
+                <div className="portfolio-marquee-track portfolio-marquee-track--left">
+                  {renderMarqueeItems(data.about.marquee.row1)}
+                </div>
+                <div
+                  aria-hidden="true"
+                  className="portfolio-marquee-track portfolio-marquee-track--left"
+                >
+                  {renderMarqueeItems(data.about.marquee.row1)}
+                </div>
               </div>
-            </TerminalWindowFrame>
-            <TerminalWindowFrame
-              title="skills.matrix"
-              command="pnpm skill:scan"
-            >
-              <SkillMatrix skills={data.skillMatrix} />
-            </TerminalWindowFrame>
-          </div>
+              <div className="portfolio-marquee-row">
+                <div className="portfolio-marquee-track portfolio-marquee-track--right">
+                  {renderMarqueeItems(data.about.marquee.row2)}
+                </div>
+                <div
+                  aria-hidden="true"
+                  className="portfolio-marquee-track portfolio-marquee-track--right"
+                >
+                  {renderMarqueeItems(data.about.marquee.row2)}
+                </div>
+              </div>
+            </div>
+          </TerminalWindowFrame>
+
+          <TerminalWindowFrame
+            title="education.log"
+            command="tail -f education.txt"
+          >
+            <div className="space-y-4">
+              {data.education.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-xl border border-slate-200 bg-slate-50 p-4"
+                >
+                  <p className="text-sm font-semibold text-slate-900">
+                    {item.title}
+                  </p>
+                  <p className="mt-1 text-sm text-slate-600">{item.subtitle}</p>
+                  {item.location && (
+                    <p className="mt-1 text-xs font-mono uppercase tracking-[0.12em] text-emerald-700/90">
+                      {item.location}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </TerminalWindowFrame>
         </div>
       </SectionShell>
 

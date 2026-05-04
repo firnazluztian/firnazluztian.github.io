@@ -6,6 +6,7 @@ interface TerminalWindowFrameProps {
   command?: string;
   className?: string;
   children: ReactNode;
+  noPadding?: boolean;
 }
 
 export const TerminalWindowFrame = ({
@@ -13,6 +14,7 @@ export const TerminalWindowFrame = ({
   command,
   className,
   children,
+  noPadding = false,
 }: TerminalWindowFrameProps) => {
   return (
     <article className={cn("terminal-window overflow-hidden", className)}>
@@ -29,7 +31,11 @@ export const TerminalWindowFrame = ({
           {command ?? "ready"}
         </span>
       </header>
-      <div className="terminal-window__content p-4 sm:p-6">{children}</div>
+      <div
+        className={`terminal-window__content ${noPadding ? "py-0" : "p-4 sm:p-6"}`}
+      >
+        {children}
+      </div>
     </article>
   );
 };

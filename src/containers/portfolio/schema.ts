@@ -52,6 +52,10 @@ export interface PortfolioDataModel {
     description: string;
     competencies: string[];
     skills: string[];
+    marquee: {
+      row1: string[];
+      row2: string[];
+    };
   };
   education: PortfolioEducation[];
   experiences: PortfolioExperience[];
@@ -135,6 +139,7 @@ export const getPortfolioData = (): PortfolioDataModel => {
       description: resume.aboutMe.description,
       competencies: resume.aboutMe.competencies,
       skills: resume.aboutMe.skills,
+      marquee: resume.aboutMe.marquee,
     },
     education: resume.projects.qualifications,
     experiences,
