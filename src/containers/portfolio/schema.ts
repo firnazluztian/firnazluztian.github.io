@@ -1,4 +1,4 @@
-import { resume } from "@/constants/resume";
+import { resume, type SideProject } from "@/constants/resume";
 import { calculateYearsOfExperience } from "@/utils";
 
 export interface PortfolioMetric {
@@ -21,13 +21,7 @@ export interface PortfolioExperience {
   descriptions: string[];
 }
 
-export interface PortfolioProject {
-  title: string;
-  description: string;
-  demo?: string;
-  link?: string;
-  imgs: string[];
-}
+export type PortfolioProject = SideProject;
 
 export interface PortfolioCertification {
   title: string;

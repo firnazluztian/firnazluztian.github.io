@@ -13,6 +13,7 @@ import { GithubContributionPanel } from "./components/github-contribution-panel"
 import { PortfolioNav } from "./components/portfolio-nav";
 import { SectionShell } from "./components/section-shell";
 import { SkillMatrix } from "./components/skill-matrix";
+import { PortfolioProjectCard } from "./components/portfolio-project-card";
 import { TerminalWindowFrame } from "./components/terminal-window-frame";
 import { TimelineRail } from "./components/timeline-rail";
 import { TypeWriter } from "@/components/motion/motions";
@@ -59,6 +60,13 @@ const renderMarqueeItems = (items: string[]) =>
 
 export default function Portfolio() {
   const data = useMemo(() => getPortfolioData(), []);
+  const sortedProjects = useMemo(
+    () =>
+      [...data.sideProjects].sort(
+        (a, b) => b.yearPublished - a.yearPublished,
+      ),
+    [data.sideProjects],
+  );
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [activeExperienceId, setActiveExperienceId] = useState(
     data.experiencePanels[0]?.id ?? "",
@@ -343,74 +351,19 @@ export default function Portfolio() {
 
       <SectionShell
         id="projects"
-        eyebrow="Project Desk"
-        title="Project Intelligence Board"
-        description="Dense project cards with links, media evidence, and stack-level snapshots."
+        eyebrow="Selected Work"
+        title="Project Portfolio"
+        description="Selected projects with context, impact, and evidence — organised as a full showcase of my best work."
       >
-        <div className="grid gap-5 md:grid-cols-2">
-          {data.sideProjects.map((project, index) => (
-            <TerminalWindowFrame
+        <div className="flex flex-col gap-8">
+          {sortedProjects.map((project, index) => (
+            <PortfolioProjectCard
               key={project.title}
-              title={`project.${index + 1}`}
-              command={project.demo ? "npm run demo" : "npm run inspect"}
-            >
-              <div className="space-y-4">
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-lg font-semibold text-slate-900">
-                    {project.title}
-                  </h3>
-                  <span className="rounded-full bg-slate-900 px-2 py-1 font-mono text-[11px] text-emerald-300">
-                    {project.imgs.length} assets
-                  </span>
-                </div>
-                <p className="text-sm leading-relaxed text-slate-600">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700"
-                    >
-                      Demo
-                    </a>
-                  )}
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="rounded-full border border-cyan-300 bg-cyan-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-cyan-700"
-                    >
-                      Code
-                    </a>
-                  )}
-                </div>
-                {project.imgs.length > 0 && (
-                  <div className="grid grid-cols-3 gap-2">
-                    {project.imgs.slice(0, 6).map((img, imgIndex) => (
-                      <motion.button
-                        type="button"
-                        key={`${project.title}-${img}`}
-                        whileHover={shouldReduceMotion ? undefined : { y: -4 }}
-                        onClick={() => setSelectedImage(img)}
-                        className="relative aspect-square overflow-hidden rounded-lg border border-slate-200 bg-slate-100"
-                      >
-                        <Image
-                          src={img}
-                          alt={`${project.title} preview ${imgIndex + 1}`}
-                          fill
-                          className="object-cover"
-                          sizes="160px"
-                        />
-                      </motion.button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </TerminalWindowFrame>
+              project={project}
+              index={index}
+              shouldReduceMotion={shouldReduceMotion}
+              onImageClick={setSelectedImage}
+            />
           ))}
         </div>
       </SectionShell>

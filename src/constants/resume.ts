@@ -1,5 +1,27 @@
 import { calculateYearsOfExperience } from "../utils";
 
+export type ProjectOrigin =
+  | "self-initiated"
+  | "class-assignment"
+  | "work-assignment"
+  | "mentorship";
+
+export interface SideProject {
+  title: string;
+  summary: string;
+  description: string;
+  role: string;
+  yearPublished: number;
+  origin: ProjectOrigin;
+  isGroupProject: boolean;
+  groupRole?: string;
+  impact: string;
+  learnings: string[];
+  demo?: string;
+  link?: string;
+  imgs: string[];
+}
+
 export const resume = {
   downloadLink:
     "https://docs.google.com/document/d/1TqtCslIiSuBjtmp9slNIkWSJ-nji97vdDGQkpw6JFn8/export?format=pdf",
@@ -207,41 +229,102 @@ export const resume = {
     ],
     sideProjects: [
       {
-        title: "ChainVault",
+        title: "ChainVault (First Place Hackaton)",
+        summary:
+          "First place Hackaton. A blockchain-powered decentralized file storage system built on the Internet Computer, combining secure on-chain storage with intelligent content understanding.",
         description:
-          "ChainVault is a blockchain-powered storage system built on the Internet Computer — offering secure, decentralized file storage. ChainVault provides a trustless, on-chain file storage system. Built on the Internet Computer, it delivers high-speed decentralized storage while offering intelligent content understanding.",
+          "ChainVault is a blockchain-powered storage system built on the Internet Computer offering secure, decentralized file storage. ChainVault provides a trustless, on-chain file storage system. Built on the Internet Computer, it delivers high-speed decentralized storage while offering intelligent content understanding.",
+        role: "Lead Interactive Engineer",
+        yearPublished: 2025,
+        origin: "self-initiated",
+        isGroupProject: true,
+        groupRole:
+          "Lead Interactive Engineer, Frontend Architect, UI/UX architect",
+        impact:
+          "Delivered an end-to-end decentralized upload flow and deployed a live canister demo, giving users a working proof of on-chain file storage on the Internet Computer.",
+        learnings: [
+          "Motoko canister patterns and candid interface design for storage APIs.",
+          "Bridging React frontends with Internet Computer wallet authentication.",
+          "Trade-offs between on-chain storage cost and UX for large file uploads.",
+        ],
         demo: "https://zmumb-qqaaa-aaaaj-a2bkq-cai.icp0.io/",
         link: "https://github.com/firnazluztian/ChainVault",
         imgs: [
           '/img/web/cv-bg1.png',
-          '/img/web/cv-bg2.png',
-          '/img/web/cv-bg3.png',
+          // '/img/web/cv-bg2.png',
+          // '/img/web/cv-bg3.png',
           '/img/web/cv1.jpg',
-          '/img/web/cv2.jpg',
+          // '/img/web/cv2.jpg',
         ],
       },
       {
-        title: "Hotel Booking Platform",
+        title: "O.S.C.A.R",
+        summary:
+          "Mentored a US-based student cohort through shipping O.S.C.A.R. a real-time classroom platform unifying teacher, student, and admin workflows with live learning and AI assisted tooling.",
         description:
-          "A NextJS-based hotel booking platform that allows users to search, filter, and book hotel rooms using SSR fetching and server actions.",
-        demo: "https://tixia.vercel.app",
+          "Led frontend architecture for a mentorship program (students of a former US professor): taught programming by building O.S.C.A.R. end to end multi-role classroom surfaces, real-time interaction, AI-powered assistance, and admin operations. Defined component boundaries, guided implementation across the team, and delivered a production-deployed product used in live demos and stakeholder pitches.",
+        role: "Frontend Lead & Architect",
+        yearPublished: 2025,
+        origin: "mentorship",
+        isGroupProject: true,
+        groupRole:
+          "Frontend lead & architect dashboard system design, real-time classroom UI, shared component architecture, and Vercel production deployment.",
+        impact:
+          "Shipped the teacher and student dashboards that anchored team demos and product pitches, while mentoring contributors through production grade React delivery aligning a multi-role team on one cohesive, live classroom experience.",
+        learnings: [
+          "Translating classroom domain flows into scalable dashboard and real time UI contracts.",
+          "Mentoring feature ownership, code review, and incremental shipping on a shared codebase.",
+          "Coordinating multi role delivery and stakeholder-ready releases with Vercel deployment discipline.",
+        ],
+        demo: "https://team-oscar.vercel.app/",
+        // link: "https://github.com/firnazluztian/oscar-app",
         imgs: [
-          '/img/web/hotel1.png',
-          '/img/web/hotel2.png',
-          // '/img/web/hotel3.png',
-          // '/img/web/hotel4.png',
+          '/img/web/oscar1.PNG',
+          '/img/web/oscar2.PNG',
+          // '/img/web/oscar3.PNG',
         ],
       },
       {
-        title: "Student E-Notes",
+        title: "Design System",
+        summary:
+          "Architected a production React design system for a startup—Atomic Design structure, Tailwind token layer, published to npm, and adopted across multiple product surfaces.",
         description:
-          "Student E-Notes is a small scale fullstack web application developed with HTML, CSS, JS for the front side and Node, Express, MongoDB for the back end. The idea of Student E-Notes is to be able to provide students with the ability to write notes, create todolist, and share their notes online and from any devices with its responsiveness.",
-        imgs: ["/img/web/3.png", "/img/web/3a.png"],
+          "Owned the full design-system lifecycle for a startup product suite: defined token and component contracts, built composable React primitives on Tailwind CSS using Atomic Design (atoms through organisms), documented usage patterns, and shipped a versioned npm package consumed by multiple apps to unify UI velocity and visual consistency.",
+        role: "Lead Frontend Engineer & Design System Architect",
+        yearPublished: 2025,
+        origin: "self-initiated",
+        isGroupProject: false,
+        impact:
+          "Centralized shared UI in a versioned npm package adopted by multiple consuming apps—cutting duplicate component work, standardizing interaction patterns, and giving the team a single source of truth for faster, consistent feature delivery.",
+        learnings: [
+          "Balancing composition vs. configuration in component APIs built for library consumers.",
+          "Package boundaries, semantic versioning, and publish workflows for npm distribution.",
+          "Token-first theming with Tailwind and structuring Atomic Design tiers for cross-app adoption.",
+        ],
+        demo: "https://firnazdev-design-system.vercel.app/",
+        link: "https://firnazdev-design-system.vercel.app/",
+        imgs: [
+          '/img/web/designsystem1.PNG',
+          '/img/web/designsystem2.PNG',
+        ],
       },
       {
         title: "Stormy Android and Web",
+        summary:
+          "A hyperlocal weather app for Android and web that delivers minute-by-minute rain forecasts powered by the Dark Sky API.",
         description:
           "Stormy Mobile is the most accurate source of hyperlocal weather information in android. With down-to-the-minute forecasts, you'll know exactly when the rain will start or stop, right where you're standing. It's almost like magic. Powered by the most used weather service API, Dark Sky is the best source of accurate weather forecasts to help you plan your life.",
+        role: "Android & Web Developer",
+        yearPublished: 2019,
+        origin: "self-initiated",
+        isGroupProject: false,
+        impact:
+          "Built and published a complete weather experience from API integration through polished mobile UI, demonstrating end-to-end ownership of a consumer-facing product.",
+        learnings: [
+          "Consuming third-party weather APIs and mapping responses to intuitive UI states.",
+          "Android activity lifecycle patterns and responsive layout design.",
+          "Balancing battery usage with location-based refresh intervals.",
+        ],
         imgs: [
           "/img/android/p1.JPG",
           "/img/android/p2.JPG",
@@ -252,8 +335,23 @@ export const resume = {
       },
       {
         title: "InDarkness: Unity Game development",
+        summary:
+          "A 3D survival horror PC game where players blow out candles via microphone input while evading a roaming ghost in a haunted mansion.",
         description:
           "In Darkness is a 3D survival horror game for PC, developed for Dr. Roberto Dillon at Adsumsoft using Scrum methodology. The game takes place in a haunted mansion, where the player must escape without dying. To stop the exorcism, they need to blow out all the candles using a microphone, adding an immersive gameplay element. However, a ghost roams the mansion, actively trying to prevent progress. If the player encounters the ghost, they die instantly, creating a tense and strategic challenge. The game requires players to stay alert, carefully avoiding the ghost while focusing on their primary objective. Designed for Windows PC users aged 18-40, In Darkness delivers a thrilling and immersive horror experience. 👻🔥",
+        role: "Game Programmer",
+        yearPublished: 2020,
+        origin: "class-assignment",
+        isGroupProject: true,
+        groupRole:
+          "Full Stack Game Developer",
+        impact:
+          "Implemented core horror mechanics that defined the game's unique pitch, including microphone-driven candle interactions and ghost patrol behavior used in the final showcase build.",
+        learnings: [
+          "Unity C# gameplay scripting and state machines for enemy AI.",
+          "Integrating microphone input as a core mechanic without breaking immersion.",
+          "Scrum delivery in a multidisciplinary game team with milestone-based reviews.",
+        ],
         imgs: [
           "/img/game/1.png",
           "/img/game/2.png",
@@ -264,25 +362,25 @@ export const resume = {
           "/img/game/final.png",
         ],
       },
-      {
-        title: "E-Commerce Dashboard (React & Redux)",
-        description:
-          "Integrated Redux Toolkit for efficient global state management, improving page responsiveness. Implemented data visualization using Chart.js to provide business insights",
-        imgs: [],
-      },
-      {
-        title: "Job Finder App (React & TypeScript)",
-        description:
-          "Built a dynamic job listing system with API integration, improving search performance. Used TypeScript to enforce strict typing, reducing runtime errors by 50%",
-        imgs: [],
-      },
-      {
-        title: "DevConnect Social Media App (React & Firebase)",
-        description:
-          "Implemented Firebase authentication with role-based access control for enhanced security, Developed a real-time chat feature using Firebase Firestore and WebSockets, improving user engagement",
-        imgs: [],
-      },
-    ],
+      // {
+      //   title: "E-Commerce Dashboard (React & Redux)",
+      //   description:
+      //     "Integrated Redux Toolkit for efficient global state management, improving page responsiveness. Implemented data visualization using Chart.js to provide business insights",
+      //   imgs: [],
+      // },
+      // {
+      //   title: "Job Finder App (React & TypeScript)",
+      //   description:
+      //     "Built a dynamic job listing system with API integration, improving search performance. Used TypeScript to enforce strict typing, reducing runtime errors by 50%",
+      //   imgs: [],
+      // },
+      // {
+      //   title: "DevConnect Social Media App (React & Firebase)",
+      //   description:
+      //     "Implemented Firebase authentication with role-based access control for enhanced security, Developed a real-time chat feature using Firebase Firestore and WebSockets, improving user engagement",
+      //   imgs: [],
+      // },
+    ] satisfies SideProject[],
   },
   activities: [
     {
