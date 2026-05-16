@@ -279,8 +279,8 @@ export const resume = {
         demo: "https://team-oscar.vercel.app/",
         // link: "https://github.com/firnazluztian/oscar-app",
         imgs: [
-          '/img/web/oscar1.PNG',
-          '/img/web/oscar2.PNG',
+          '/img/web/oscar1.png',
+          '/img/web/oscar2.png',
           // '/img/web/oscar3.PNG',
         ],
       },
@@ -304,8 +304,8 @@ export const resume = {
         demo: "https://firnazdev-design-system.vercel.app/",
         link: "https://firnazdev-design-system.vercel.app/",
         imgs: [
-          '/img/web/designsystem1.PNG',
-          '/img/web/designsystem2.PNG',
+          '/img/web/designsystem1.png',
+          '/img/web/designsystem2.png',
         ],
       },
       {
