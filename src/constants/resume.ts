@@ -28,7 +28,7 @@ export const resume = {
   aboutMe: {
     title: "About Me",
     description:
-      `Software Engineer with ${calculateYearsOfExperience(2020)} years of experience engineering high-scale web ecosystems across enterprise and startup environments. Expert in React, Next.js, and TypeScript, with a focus on system design, modular architectures, and scalable design systems that drive 40% gains in development efficiency. Proven leader in technical roadmapping, mentorship, and performance engineering, optimizing Core Web Vitals to directly impact user retention and business growth.`,
+      `Software Engineer with ${calculateYearsOfExperience(2020)}+ years of experience engineering high-scale web ecosystems across enterprise and startup environments. Expert in React, Next.js, and TypeScript, with a focus on system design, modular architectures, and scalable design systems that drive 40% gains in development efficiency. Proven leader in technical roadmapping, mentorship, and performance engineering, optimizing Core Web Vitals to directly impact user retention and business growth.`,
     competencies: [
       "Problem Solving",
       "Logical Reasoning",
