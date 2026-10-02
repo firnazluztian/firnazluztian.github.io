@@ -229,6 +229,31 @@ export const resume = {
     ],
     sideProjects: [
       {
+        title: "Vinove AI",
+        summary:
+          "Cinematic visual-novel companion chat: create a persona, upload photos, and converse in a scene-style UI with emotion cues, reading preferences, and bilingual locale support.",
+        description:
+          "Built Vinove end to end as a soft-launched companion chat product, React 19 + Vite + TypeScript, Tailwind/shadcn, and Zustand on the client; Supabase for Auth (Google + magic link), Postgres, and photo Storage; Vercel serverless `/api/chat` with Claude Haiku or Gemini, plus Gemini TTS for dialogue playback. Shipped companion onboarding, scene chat with typewriter and themes, auto emotion tags from model replies, a two-companion switcher, daily chat quota, and en/id/jp locale.",
+        role: "Full Stack Engineer",
+        yearPublished: 2026,
+        origin: "self-initiated",
+        isGroupProject: false,
+        impact:
+          "Shipped a production companion chat app from auth and storage through LLM replies and TTS giving users a working onboarding-to-scene loop with persisted history, reading prefs, and soft-launch ops (quota, provider failover awareness, and auth redirect hardening).",
+        learnings: [
+          "Supabase Auth, RLS, and Storage boundaries so client-only keys never expose privileged paths.",
+          "Separating Vite UI from Vercel serverless LLM/TTS routes, including provider switching and daily quota controls.",
+          "Productizing scene-chat UX typewriter, emotion cues, themes, and locale without blocking on streaming as the next bet.",
+        ],
+        demo: "https://vinove.vercel.app/",
+        link: "https://github.com/firnazluztian/vinove-app",
+        imgs: [
+          '/img/web/vinove/1.png',
+          '/img/web/vinove/2.png',
+          '/img/web/vinove/3.png',
+        ],
+      },
+      {
         title: "ChainVault (First Place Hackaton)",
         summary:
           "First place Hackaton. A blockchain-powered decentralized file storage system built on the Internet Computer, combining secure on-chain storage with intelligent content understanding.",
