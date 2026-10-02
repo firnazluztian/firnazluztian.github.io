@@ -8,15 +8,16 @@ import {
   useReducedMotion,
   useScroll,
 } from "framer-motion";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { GithubContributionPanel } from "./components/github-contribution-panel";
+import { LocaleSwitcher } from "./components/locale-switcher";
 import { PortfolioNav } from "./components/portfolio-nav";
 import { SectionShell } from "./components/section-shell";
-import { SkillMatrix } from "./components/skill-matrix";
 import { PortfolioProjectCard } from "./components/portfolio-project-card";
 import { TerminalWindowFrame } from "./components/terminal-window-frame";
 import { TimelineRail } from "./components/timeline-rail";
 import { TypeWriter } from "@/components/motion/motions";
+import { LocaleProvider, useLocale } from "@/context/locale-context";
 import { getPortfolioData } from "./schema";
 
 const containerVariants = {
@@ -38,16 +39,6 @@ const itemVariants = {
   },
 };
 
-const sectionAnchors = [
-  { id: "home", label: "Intro" },
-  { id: "about", label: "About" },
-  { id: "vocabulary", label: "Vocabulary" },
-  { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
-  { id: "intel", label: "Intel" },
-  { id: "contact", label: "Contact" },
-];
-
 const renderMarqueeItems = (items: string[]) =>
   items.map((item, index) => (
     <span
@@ -58,8 +49,21 @@ const renderMarqueeItems = (items: string[]) =>
     </span>
   ));
 
-export default function Portfolio() {
-  const data = useMemo(() => getPortfolioData(), []);
+function PortfolioContent() {
+  const { locale, resume, ui } = useLocale();
+  const data = useMemo(() => getPortfolioData(resume, ui), [resume, ui]);
+  const sectionAnchors = useMemo(
+    () => [
+      { id: "home", label: ui.nav.home },
+      { id: "about", label: ui.nav.about },
+      { id: "vocabulary", label: ui.nav.vocabulary },
+      { id: "experience", label: ui.nav.experience },
+      { id: "projects", label: ui.nav.projects },
+      { id: "intel", label: ui.nav.intel },
+      { id: "contact", label: ui.nav.contact },
+    ],
+    [ui.nav],
+  );
   const sortedProjects = useMemo(
     () =>
       [...data.sideProjects].sort(
@@ -78,12 +82,17 @@ export default function Portfolio() {
     data.experiencePanels.find((item) => item.id === activeExperienceId) ??
     data.experiencePanels[0];
 
+  useEffect(() => {
+    setActiveExperienceId(data.experiencePanels[0]?.id ?? "");
+  }, [data.experiencePanels]);
+
   return (
     <div className="portfolio-page relative text-slate-900">
       <motion.div
         className="fixed left-0 top-0 z-50 h-1 bg-gradient-to-r from-emerald-500 via-cyan-500 to-emerald-500"
         style={{ scaleX: scrollYProgress, transformOrigin: "0%" }}
       />
+      <LocaleSwitcher />
       <PortfolioNav sections={sectionAnchors} />
 
       <section
@@ -100,13 +109,16 @@ export default function Portfolio() {
             variants={containerVariants}
             className="space-y-8"
           >
-            <span className="text-white text-2xl font-bold">Hi, I am </span>
+            <span className="text-white text-2xl font-bold">
+              {ui.hero.greeting}{" "}
+            </span>
             <motion.h1
               variants={itemVariants}
               className="text-3xl font-bold leading-tight sm:text-5xl"
             >
               <TypeWriter
-                texts={["Firnaz Luztian Adiansyah", "Software Engineer"]}
+                key={locale}
+                texts={[ui.hero.name, ui.hero.role]}
                 className="text-theme inline-block"
               />
             </motion.h1>
@@ -114,9 +126,7 @@ export default function Portfolio() {
               variants={itemVariants}
               className="max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg"
             >
-              Frontend architecture for high-scale products, translated into
-              measurable performance, resilient systems, and premium UX
-              execution. Experienced in global teams and remote work.
+              {ui.hero.tagline}
             </motion.p>
             <motion.div
               variants={itemVariants}
@@ -147,7 +157,7 @@ export default function Portfolio() {
                 href="#about"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-theme px-6 py-3 text-sm font-semibold text-white transition hover:bg-opacity-90"
               >
-                Learn More
+                {ui.hero.learnMore}
                 <Icon icon="mdi:arrow-down" className="h-4 w-4" />
               </a>
               <a
@@ -156,7 +166,7 @@ export default function Portfolio() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-gray-900"
               >
-                Download Resume
+                {ui.hero.downloadResume}
               </a>
             </motion.div>
           </motion.div>
@@ -165,9 +175,9 @@ export default function Portfolio() {
 
       <SectionShell
         id="about"
-        eyebrow="System Profile"
+        eyebrow={ui.about.eyebrow}
         title={data.about.title}
-        description="Dense, technical breakdown of approach, competencies, and stack proficiency."
+        description={ui.about.description}
       >
         <div className="grid gap-6 grid-cols-1">
           <TerminalWindowFrame title="about.context" command="cat ./about.md">
@@ -209,6 +219,7 @@ export default function Portfolio() {
                   fallbackImage={data.github.fallbackImage}
                   repoCount={data.github.repoCount}
                   followers={data.github.followers}
+                  labels={ui.github}
                 />
               </motion.div>
             </motion.div>
@@ -269,9 +280,9 @@ export default function Portfolio() {
 
       <SectionShell
         id="experience"
-        eyebrow="Experience Ops"
-        title="Timeline + Impact Console"
-        description="Use the timeline rail to inspect each career chapter with quantized impact and delivery logs."
+        eyebrow={ui.experience.eyebrow}
+        title={ui.experience.title}
+        description={ui.experience.description}
       >
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <TerminalWindowFrame title="timeline.index" command="ls ./experience">
@@ -351,9 +362,9 @@ export default function Portfolio() {
 
       <SectionShell
         id="projects"
-        eyebrow="Selected Work"
-        title="Project Portfolio"
-        description="Selected projects with context, impact, and evidence — organised as a full showcase of my best work."
+        eyebrow={ui.projects.eyebrow}
+        title={ui.projects.title}
+        description={ui.projects.description}
       >
         <div className="flex flex-col gap-8">
           {sortedProjects.map((project, index) => (
@@ -363,6 +374,7 @@ export default function Portfolio() {
               index={index}
               shouldReduceMotion={shouldReduceMotion}
               onImageClick={setSelectedImage}
+              labels={ui.projectCard}
             />
           ))}
         </div>
@@ -370,9 +382,9 @@ export default function Portfolio() {
 
       <SectionShell
         id="intel"
-        eyebrow="Open Source Intel"
-        title="Credentials + Activity Dashboard"
-        description="Portfolio credentials and activity evidence."
+        eyebrow={ui.intel.eyebrow}
+        title={ui.intel.title}
+        description={ui.intel.description}
       >
         <div className="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
           <div className="space-y-4 xl:col-span-2">
@@ -445,14 +457,13 @@ export default function Portfolio() {
         >
           <div>
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700">
-              handshake.init
+              {ui.contact.eyebrow}
             </p>
             <h2 className="mt-2 text-2xl font-bold text-slate-900 sm:text-3xl">
-              Ready for ambitious product work.
+              {ui.contact.title}
             </h2>
             <p className="mt-3 text-sm text-slate-600 sm:text-base">
-              Open to impactful frontend architecture roles and high-scale
-              product challenges.
+              {ui.contact.description}
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -462,7 +473,7 @@ export default function Portfolio() {
               rel="noopener noreferrer"
               className="rounded-full bg-emerald-500 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-emerald-600"
             >
-              Download Resume
+              {ui.contact.downloadResume}
             </a>
             <a
               href={data.socials[0]?.url}
@@ -470,7 +481,7 @@ export default function Portfolio() {
               rel="noopener noreferrer"
               className="rounded-full border border-cyan-300 bg-cyan-50 px-6 py-3 text-center text-sm font-semibold text-cyan-700 transition hover:bg-cyan-100"
             >
-              Connect on LinkedIn
+              {ui.contact.connectLinkedIn}
             </a>
           </div>
         </motion.div>
@@ -495,7 +506,7 @@ export default function Portfolio() {
             >
               <Image
                 src={selectedImage}
-                alt="Project preview"
+                alt={ui.previewAlt}
                 fill
                 className="object-contain"
                 quality={100}
@@ -512,5 +523,13 @@ export default function Portfolio() {
         )}
       </AnimatePresence>
     </div>
+  );
+}
+
+export default function Portfolio() {
+  return (
+    <LocaleProvider>
+      <PortfolioContent />
+    </LocaleProvider>
   );
 }

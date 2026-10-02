@@ -1,4 +1,5 @@
-import { resume, type SideProject } from "@/constants/resume";
+import type { Resume, SideProject } from "@/constants/locale-resume";
+import type { PortfolioUi } from "@/constants/locale-ui";
 import { calculateYearsOfExperience } from "@/utils";
 
 export interface PortfolioMetric {
@@ -100,7 +101,10 @@ const toNumber = (value: string): number => {
   return Number.isNaN(parsed) ? 0 : parsed;
 };
 
-export const getPortfolioData = (): PortfolioDataModel => {
+export const getPortfolioData = (
+  resume: Resume,
+  ui: PortfolioUi,
+): PortfolioDataModel => {
   const years = toNumber(calculateYearsOfExperience(2020));
   const experiences = resume.projects.experiences;
   const sideProjects = resume.projects.sideProjects;
@@ -142,16 +146,33 @@ export const getPortfolioData = (): PortfolioDataModel => {
     activities: resume.activities,
     socials: resume.socialMedia,
     metrics: [
-      { label: "Years Building", value: years, suffix: "+" },
-      { label: "Projects Shipped", value: sideProjects.length },
-      { label: "Certifications", value: certifications.length },
-      { label: "Career Chapters", value: experiences.length },
+      { label: ui.metrics.yearsBuilding, value: years, suffix: "+" },
+      { label: ui.metrics.projectsShipped, value: sideProjects.length },
+      { label: ui.metrics.certifications, value: certifications.length },
+      { label: ui.metrics.careerChapters, value: experiences.length },
     ],
     quickStats: [
-      { label: "Years Building", value: years, suffix: "+", tone: "green" },
-      { label: "Projects", value: sideProjects.length, tone: "cyan" },
-      { label: "Certifications", value: certifications.length, tone: "amber" },
-      { label: "Activity Albums", value: resume.activities.length, tone: "green" },
+      {
+        label: ui.metrics.yearsBuilding,
+        value: years,
+        suffix: "+",
+        tone: "green",
+      },
+      {
+        label: ui.metrics.projects,
+        value: sideProjects.length,
+        tone: "cyan",
+      },
+      {
+        label: ui.metrics.certifications,
+        value: certifications.length,
+        tone: "amber",
+      },
+      {
+        label: ui.metrics.activityAlbums,
+        value: resume.activities.length,
+        tone: "green",
+      },
     ],
     roleDistribution,
     projectDistribution,

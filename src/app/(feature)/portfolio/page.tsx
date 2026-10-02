@@ -1,10 +1,7 @@
-"use client"
-import Portfolio from "@/containers/portfolio"
+"use client";
 
-export default function PortfolioContainer () {
+import Portfolio from "@/containers/portfolio";
 
-  return (
-    <Portfolio />
-  )
+export default function PortfolioContainer() {
+  return <Portfolio />;
 }
-

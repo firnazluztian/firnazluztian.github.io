@@ -2,20 +2,15 @@ import { Icon } from "@iconify/react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { TerminalWindowFrame } from "./terminal-window-frame";
+import type { PortfolioUi } from "@/constants/locale-ui";
 import type { PortfolioProject } from "../schema";
-
-const ORIGIN_LABELS: Record<PortfolioProject["origin"], string> = {
-  "self-initiated": "Self-initiated",
-  "class-assignment": "Class assignment",
-  "work-assignment": "Work assignment",
-  mentorship: "Mentorship",
-};
 
 interface PortfolioProjectCardProps {
   project: PortfolioProject;
   index: number;
   shouldReduceMotion: boolean | null;
   onImageClick: (src: string) => void;
+  labels: PortfolioUi["projectCard"];
 }
 
 export const PortfolioProjectCard = ({
@@ -23,6 +18,7 @@ export const PortfolioProjectCard = ({
   index,
   shouldReduceMotion,
   onImageClick,
+  labels,
 }: PortfolioProjectCardProps) => {
   return (
     <TerminalWindowFrame
@@ -52,11 +48,11 @@ export const PortfolioProjectCard = ({
 
         <div className="flex flex-wrap gap-2">
           <span className="rounded-full border border-slate-300 bg-slate-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-slate-700">
-            {ORIGIN_LABELS[project.origin]}
+            {labels.origin[project.origin]}
           </span>
           {project.isGroupProject && (
             <span className="rounded-full border border-amber-300 bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-amber-800">
-              Group project
+              {labels.groupProject}
             </span>
           )}
         </div>
@@ -64,7 +60,7 @@ export const PortfolioProjectCard = ({
         {project.isGroupProject && project.groupRole && (
           <div className="rounded-xl border border-amber-200 bg-amber-50/60 p-4">
             <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-amber-800">
-              My role in the team
+              {labels.teamRole}
             </p>
             <p className="mt-1 text-sm leading-relaxed text-slate-700">
               {project.groupRole}
@@ -83,7 +79,7 @@ export const PortfolioProjectCard = ({
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
             <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700">
-              Impact
+              {labels.impact}
             </p>
             <p className="mt-2 text-sm leading-relaxed text-slate-700">
               {project.impact}
@@ -91,7 +87,7 @@ export const PortfolioProjectCard = ({
           </div>
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
             <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cyan-700">
-              What I learned
+              {labels.learnings}
             </p>
             <ul className="mt-2 space-y-2">
               {project.learnings.map((item) => (
@@ -119,7 +115,7 @@ export const PortfolioProjectCard = ({
                 rel="noopener noreferrer"
                 className="rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700 transition hover:bg-emerald-100"
               >
-                Demo
+                {labels.demo}
               </a>
             )}
             {project.link && (
@@ -129,7 +125,7 @@ export const PortfolioProjectCard = ({
                 rel="noopener noreferrer"
                 className="rounded-full border border-cyan-300 bg-cyan-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-cyan-700 transition hover:bg-cyan-100"
               >
-                Code
+                {labels.code}
               </a>
             )}
           </div>
