@@ -233,6 +233,33 @@ export const resumeEn: Resume = {
         ],
       },
       {
+        title: "Money Pls",
+        summary:
+          "Self-reported personal finance diary: log any asset without a bank login, see net worth and cashflow health, and confirm a receipt amount before it hits the book.",
+        description:
+          "Built Money Pls end to end as a mobile-usable web ledger, React 19 + Vite + TypeScript, Tailwind, and Zustand on the client; Supabase Auth (Google + magic link), Postgres, and RLS for a per-user book of assets, transactions, incomes, bills, and savings. Shipped onboarding, multi-currency net worth (IDR, USD, EUR, SGD), per-asset history, recurring cashflow with a health read, receipt capture that stays a draft until confirm and never stores the photo, plus en/id locale, a pro/caveman tone, and an on-screen balance blur.",
+        role: "Full Stack Engineer",
+        yearPublished: 2026,
+        origin: "self-initiated",
+        isGroupProject: false,
+        impact:
+          "Shipped a signed-in personal ledger from auth through net worth and cashflow, so cash, credit, and non-cash assets live in one book that survives refresh, with preferences on the device and a failed save leaving the previous rows in place.",
+        learnings: [
+          "Supabase Auth and RLS so each book is scoped to auth.uid(), with the publishable key on the client and no service role in the bundle.",
+          "Keeping theme, locale, tone, and privacy on the device while ledger rows round-trip through Postgres.",
+          "Treating a receipt photo as a confirm-before-post draft, and not storing the image, so later parsing can attach to a transaction without auto-posting.",
+        ],
+        demo: "https://money-pls.vercel.app/",
+        link: "https://github.com/firnazluztian/money-pls-app",
+        imgs: [
+          '/img/web/money-pls/home.png',
+          '/img/web/money-pls/app1.png',
+          '/img/web/money-pls/app2.png',
+          '/img/web/money-pls/app3.png',
+          '/img/web/money-pls/app4.png',
+        ],
+      },
+      {
         title: "ChainVault (First Place Hackaton)",
         summary:
           "First place Hackaton. A blockchain-powered decentralized file storage system built on the Internet Computer, combining secure on-chain storage with intelligent content understanding.",

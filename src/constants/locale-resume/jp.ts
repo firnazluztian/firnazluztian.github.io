@@ -232,6 +232,33 @@ export const resumeJp: Resume = {
         ],
       },
       {
+        title: "Money Pls",
+        summary:
+          "自己申告の家計日記。銀行ログインなしで任意の資産を記録し、純資産とキャッシュフローの健全性を確認し、レシート金額は確定するまで帳簿に入れません。",
+        description:
+          "モバイルでも使えるWeb台帳としてMoney Plsをエンドツーエンドで構築。クライアントはReact 19 + Vite + TypeScript、Tailwind、Zustand。Supabase Auth（Google + マジックリンク）、Postgres、RLSでユーザーごとの帳簿（資産、取引、収入、請求、貯蓄）。オンボーディング、複数通貨の純資産（IDR、USD、EUR、SGD）、資産ごとの履歴、健全性つき定期キャッシュフロー、確定まで下書きで写真は保存しないレシート取り込み、en/idロケール、プロ／cavemanの口調、画面上の残高ぼかしを出荷。",
+        role: "フルスタックエンジニア",
+        yearPublished: 2026,
+        origin: "self-initiated",
+        isGroupProject: false,
+        impact:
+          "認証から純資産・キャッシュフローまで、サインイン必須の個人台帳を出荷。現金・クレジット・非現金資産を一つの帳簿に置き、更新後も残り、設定は端末側、保存失敗時は直前の行を残す。",
+        learnings: [
+          "各帳簿をauth.uid()に閉じ、クライアントは公開可能キーのみ。service roleはバンドルに入れないSupabase AuthとRLS。",
+          "テーマ、locale、口調、プライバシーは端末に残し、台帳の行だけPostgresと往復させる。",
+          "レシート写真は確定まで下書きとし、画像は保存しない。後から解析を足しても自動計上しない。",
+        ],
+        demo: "https://money-pls.vercel.app/",
+        link: "https://github.com/firnazluztian/money-pls-app",
+        imgs: [
+          "/img/web/money-pls/home.png",
+          "/img/web/money-pls/app1.png",
+          "/img/web/money-pls/app2.png",
+          "/img/web/money-pls/app3.png",
+          "/img/web/money-pls/app4.png",
+        ],
+      },
+      {
         title: "ChainVault（ハッカソン優勝）",
         summary:
           "ハッカソン優勝。Internet Computer上のブロックチェーン分散ファイルストレージで、安全なオンチェーン保存と知的コンテンツ理解を組み合わせます。",

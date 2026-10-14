@@ -232,6 +232,33 @@ export const resumeId: Resume = {
         ],
       },
       {
+        title: "Money Pls",
+        summary:
+          "Buku keuangan pribadi yang dilaporkan sendiri: catat aset apa pun tanpa login bank, lihat kekayaan bersih dan kesehatan arus kas, lalu konfirmasi nominal struk sebelum masuk buku.",
+        description:
+          "Membangun Money Pls end-to-end sebagai buku besar web yang nyaman di mobile: React 19 + Vite + TypeScript, Tailwind, dan Zustand di klien; Supabase Auth (Google + magic link), Postgres, dan RLS untuk buku per pengguna (aset, transaksi, pemasukan, tagihan, tabungan). Merilis onboarding, kekayaan bersih multi-mata uang (IDR, USD, EUR, SGD), riwayat per aset, arus kas berulang dengan bacaan kesehatan, tangkapan struk yang tetap draf sampai dikonfirmasi dan fotonya tidak disimpan, plus locale en/id, nada pro/caveman, dan blur saldo di layar.",
+        role: "Full Stack Engineer",
+        yearPublished: 2026,
+        origin: "self-initiated",
+        isGroupProject: false,
+        impact:
+          "Merilis buku pribadi yang mengharuskan masuk, dari auth sampai kekayaan bersih dan arus kas, sehingga kas, kredit, dan aset non-tunai ada dalam satu buku yang tetap setelah refresh, dengan preferensi di perangkat dan penyimpanan gagal yang meninggalkan baris sebelumnya.",
+        learnings: [
+          "Supabase Auth dan RLS agar setiap buku terikat pada auth.uid(), dengan kunci publishable di klien dan tanpa service role di bundle.",
+          "Menyimpan tema, locale, nada, dan privasi di perangkat, sementara baris buku bolak-balik lewat Postgres.",
+          "Memperlakukan foto struk sebagai draf yang harus dikonfirmasi sebelum diposting, dan tidak menyimpan gambarnya, agar parsing nanti bisa menempel pada transaksi tanpa auto-post.",
+        ],
+        demo: "https://money-pls.vercel.app/",
+        link: "https://github.com/firnazluztian/money-pls-app",
+        imgs: [
+          "/img/web/money-pls/home.png",
+          "/img/web/money-pls/app1.png",
+          "/img/web/money-pls/app2.png",
+          "/img/web/money-pls/app3.png",
+          "/img/web/money-pls/app4.png",
+        ],
+      },
+      {
         title: "ChainVault (Juara 1 Hackaton)",
         summary:
           "Juara 1 Hackaton. Sistem penyimpanan file terdesentralisasi berbasis blockchain di Internet Computer, menggabungkan penyimpanan on-chain yang aman dengan pemahaman konten cerdas.",
