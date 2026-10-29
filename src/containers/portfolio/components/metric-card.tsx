@@ -39,7 +39,7 @@ export const MetricCard = ({
         {count}
         {suffix}
       </p>
-      <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.15em] text-slate-500">
+      <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.15em] text-slate-700">
         {label}
       </p>
     </motion.div>

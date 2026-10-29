@@ -18,7 +18,7 @@ export const MiniBarChart = ({
 }: MiniBarChartProps) => {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-4">
-      <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-500">
+      <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-700">
         {title}
       </p>
       <ul className="mt-4 space-y-3">
