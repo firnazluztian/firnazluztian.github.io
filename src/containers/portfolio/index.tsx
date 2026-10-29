@@ -320,14 +320,14 @@ function PortfolioContent() {
                     <p className="text-sm text-emerald-700">
                       {activeExperience.position}
                     </p>
-                    <p className="text-sm text-slate-500">
+                    <p className="text-sm text-slate-700">
                       {activeExperience.location}
                     </p>
                   </div>
                 </div>
 
                 <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-500">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-700">
                     impact_score
                   </p>
                   <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-200">

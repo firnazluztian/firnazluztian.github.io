@@ -72,7 +72,7 @@ export const PortfolioProjectCard = ({
           {project.summary}
         </p>
 
-        <p className="text-sm leading-relaxed text-slate-500">
+        <p className="text-sm leading-relaxed text-slate-600">
           {project.description}
         </p>
 

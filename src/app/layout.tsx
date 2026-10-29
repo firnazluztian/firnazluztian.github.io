@@ -39,6 +39,15 @@ export const metadata: Metadata = {
   authors: [{ name: "Firnaz Luztian Adiansyah" }],
   creator: "Firnaz Luztian Adiansyah",
   publisher: "Firnaz Luztian Adiansyah",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32x32.svg", sizes: "32x32", type: "image/svg+xml" }
+    ],
+    apple: [
+      { url: "/apple-touch-icon.svg", sizes: "180x180", type: "image/svg+xml" }
+    ]
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -61,7 +70,6 @@ export const metadata: Metadata = {
     description: "Professional portfolio of Firnaz Luztian Adiansyah, a Software Engineer experienced in React, Next.js, TypeScript, and more.",
     images: ["/img/bg.jpg"],
   },
-  viewport: "width=device-width, initial-scale=1",
   robots: {
     index: true,
     follow: true,
@@ -76,6 +84,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://firnazluztian.github.io/",
   },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({

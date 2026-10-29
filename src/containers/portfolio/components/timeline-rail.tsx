@@ -43,7 +43,7 @@ export const TimelineRail = ({
                   <p className="text-sm font-semibold text-slate-900">
                     {item.title}
                   </p>
-                  <p className="text-xs text-slate-500">{item.subtitle}</p>
+                  <p className="text-xs text-slate-700">{item.subtitle}</p>
                 </div>
                 <span className="rounded-full bg-slate-900 px-2 py-1 font-mono text-[11px] text-emerald-300">
                   #{index + 1}

@@ -29,13 +29,13 @@ export const GithubContributionPanel = ({
         <div className="grid grid-cols-2 gap-3">
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
             <p className="text-2xl font-bold text-slate-900">{repoCount}</p>
-            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-500">
+            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-700">
               {labels.publicRepos}
             </p>
           </div>
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
             <p className="text-2xl font-bold text-slate-900">{followers}</p>
-            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-500">
+            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-700">
               {labels.followers}
             </p>
           </div>

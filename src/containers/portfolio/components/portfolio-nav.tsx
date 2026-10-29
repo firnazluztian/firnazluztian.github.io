@@ -53,7 +53,7 @@ export const PortfolioNav = ({ sections }: PortfolioNavProps) => {
               href={`#${section.id}`}
               className={cn(
                 "group flex items-center gap-2 rounded-xl px-2 py-1.5 text-xs uppercase tracking-[0.18em] transition-colors font-mono",
-                activeId === section.id ? "text-emerald-700" : "text-slate-500 hover:text-slate-900"
+                activeId === section.id ? "text-emerald-700" : "text-slate-600 hover:text-slate-900"
               )}
             >
               <motion.span

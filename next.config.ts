@@ -28,6 +28,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  modularizeImports: {
+    '@iconify/react': {
+      transform: '@iconify/react',
+      skipDefaultConversion: true,
+    },
+  },
+  experimental: {
+    optimizePackageImports: ['framer-motion'],
+  },
 };
 
 export default nextConfig;
