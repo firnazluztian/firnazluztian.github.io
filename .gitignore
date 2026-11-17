@@ -36,7 +36,10 @@ yarn-error.log*
 
 notes.md
 
+# Ignore loose docs scratch files; keep ADR tree tracked
 docs/*
+!docs/adr/
+!docs/adr/**
 !docs/.gitkeep
 
 storybook-static/*

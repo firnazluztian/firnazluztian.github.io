@@ -100,6 +100,7 @@ export default function RootLayout({
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${oxygen.className} antialiased`}>
       <head>
         <link rel="canonical" href="https://firnazluztian.github.io/" />
+        <link rel="describedby" href="/llms.txt" />
         <Script id="schema-person" type="application/ld+json">
           {`
             {

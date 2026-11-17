@@ -1,0 +1,12 @@
+---
+description: Core portfolio site conventions
+alwaysApply: true
+---
+
+# Portfolio core
+
+- Read [AGENTS.md](AGENTS.md) and [docs/adr/](docs/adr/README.md) before non-trivial work.
+- Canonical product: `src/containers/portfolio` on `/` and `/portfolio`.
+- Static GitHub Pages deploy — no server-only Next features for core pages.
+- Content lives in locale packs (`locale-resume`, `locale-ui`) — keep EN/ID/JP aligned.
+- Prefer editing `src/app/page.tsx` path via containers, not inventing parallel home UIs.

@@ -2,5 +2,9 @@
 User-agent: *
 Allow: /
 
+# LLM-oriented site summary (https://llmstxt.org/)
+# https://firnazluztian.github.io/llms.txt
+# https://firnazluztian.github.io/llms-full.txt
+
 # Sitemap location
 Sitemap: https://firnazluztian.github.io/sitemap.xml 

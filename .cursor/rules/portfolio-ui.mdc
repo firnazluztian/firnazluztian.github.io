@@ -1,0 +1,12 @@
+---
+description: Portfolio container UI patterns
+globs: src/containers/portfolio/**/*
+alwaysApply: false
+---
+
+# Portfolio UI
+
+- Keep section anchors aligned with nav (`home`, `about`, `experience`, `projects`, `intel`, `contact`).
+- Reuse existing motion/section components; avoid new card systems unless interaction requires it.
+- Locale switching goes through `LocaleProvider` / locale context — persist key `portfolio-locale`.
+- Images/assets: prefer `public/`; update SEO in `src/app/layout.tsx` when branding changes.

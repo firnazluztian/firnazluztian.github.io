@@ -1,0 +1,28 @@
+# Firnaz Luztian Adiansyah — Portfolio
+
+> Personal portfolio / resume site for software engineer Firnaz Luztian Adiansyah. Next.js 15 App Router, React 19, TypeScript, Tailwind, Framer Motion. Static export on GitHub Pages.
+
+Live site: https://firnazluztian.github.io  
+Locales: English, Indonesian, Japanese.
+
+## Docs
+
+- [README](https://github.com/firnazluztian/firnazluztian.github.io/blob/master/README.md): Engineering overview, routes, content workflow
+- [AGENTS](https://github.com/firnazluztian/firnazluztian.github.io/blob/master/AGENTS.md): Agent / contributor entry
+- [Architecture decisions](https://github.com/firnazluztian/firnazluztian.github.io/blob/master/docs/adr/README.md): Static Pages, locale packs, canonical vs legacy routes
+
+## Pages
+
+- [Home / Portfolio](https://firnazluztian.github.io/): Canonical portfolio (hero, about, experience, projects, intel, contact)
+- [Portfolio alias](https://firnazluztian.github.io/portfolio): Same experience
+
+## Related AI products
+
+- [Vinove](https://vinoveai.vercel.app/llms.txt): Companion chat with content guardrails
+- [Vibe House](https://vibehouseai.com/llms.txt): URL scanner with SSRF / rubric retrieval
+
+## Optional
+
+- [Full LLM summary](https://firnazluztian.github.io/llms-full.txt): Longer crawl-oriented summary
+- [GitHub](https://github.com/firnazluztian): Profile
+- [LinkedIn](https://www.linkedin.com/in/firnaz-luztian-adiansyah-6526b8194/): Professional profile

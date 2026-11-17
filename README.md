@@ -1,86 +1,71 @@
-# Firnaz Luztian Adiansyah - Software Engineer Portfolio
+# firnazluztian.github.io
 
-Welcome to the portfolio website of Firnaz Luztian Adiansyah, a Software Engineer with 5+ years of experience in building high-performance, scalable web applications across both enterprise environments and agile startups.
+Personal portfolio site for **Firnaz Luztian Adiansyah** — software engineer (React / Next.js / TypeScript).
 
-## About Me
+| | |
+|--|--|
+| **Live** | [https://firnazluztian.github.io](https://firnazluztian.github.io) |
+| **Stack** | Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS 3, Framer Motion |
+| **Deploy** | GitHub Pages (static export via Actions) |
+| **LLM crawl** | [`/llms.txt`](https://firnazluztian.github.io/llms.txt) · [`/llms-full.txt`](https://firnazluztian.github.io/llms-full.txt) ([spec](https://llmstxt.org/)) |
 
-I'm a software engineer with expertise in:
-- React, Next.js, TypeScript, and Tailwind CSS
-- Building responsive and efficient web applications
-- Optimizing UX, performance, and maintainability
-- Remote and on-site work experience, adapting to global teams
+## Architecture
 
-## Professional Experience
-
-### Telkom Indonesia
-**Software Engineer (React)** | Jakarta, Indonesia
-- Managed cross-functional teams for Telkom super app product (MyTEnS)
-- Improved page load time by 40% and increased user engagement by 25%
-- Developed design systems and atomic architecture, reducing development time for new features by 30%
-
-### Oromico Singapore  
-**Software Engineer (React)** | Singapore
-- Worked in fintech, focusing on complex security challenges and performance optimizations
-- Implemented CRUD Chart of Accounts UI with React/Redux, TypeScript, and Python
-
-### Addon Tech
-**Software Engineer (Android)** | TX, USA
-- Developed Android mobile app for health insurance projects
-- Created responsive, visually appealing UIs using native Android SDK
-
-## Education
-- Master of Information Technology (Computing and Networking)
-- Bachelor of Science (Software Engineering)
-
-## Connect With Me
-- [LinkedIn](https://www.linkedin.com/in/firnaz-luztian-adiansyah-6526b8194/)
-- [GitHub](https://github.com/firnazluztian)
-- [GitLab](https://gitlab.playcourt.id/telkomdev-firnazluztian)
-
-## Portfolio Website
-Visit my portfolio at [firnazluztian.github.io](https://firnazluztian.github.io)
-
-## Technical Skills
-- JavaScript/TypeScript
-- React/Next.js
-- Python
-- Tailwind CSS
-- MongoDB
-- Git/GitHub/GitLab
-
-Built with Next.js and deployed on GitHub Pages.
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```text
+src/app/(routes)  →  thin pages
+src/containers/portfolio  →  canonical UI (i18n)
+src/constants/locale-resume|locale-ui  →  EN / ID / JP content
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Static hosting constraints: no Node server APIs on Pages ([ADR 0001](docs/adr/0001-static-github-pages.md)).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Related AI systems (elsewhere)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This site is a static portfolio — it does **not** run RAG or moderation itself. Shipped AI work lives in sibling apps:
 
-## Learn More
+| Project | What to look at |
+|---------|-----------------|
+| [Vinove](https://github.com/firnazluztian/vinove-app) | Content **guardrails**: SAFE_MODE, LLM classifier, age gate, privacy-preserving safety logs |
+| [Vibe House](https://github.com/firnazluztian/vibehouse) | **Trust boundaries** for untrusted HTML + **rubric retrieval** for vibe-signal scoring |
 
-To learn more about Next.js, take a look at the following resources:
+## AI-assisted development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Artifact | Purpose |
+|----------|---------|
+| [AGENTS.md](AGENTS.md) | Agent entry — routes, content workflow, hard rules |
+| [CLAUDE.md](CLAUDE.md) | Claude Code entry |
+| [docs/adr/](docs/adr/README.md) | Architecture Decision Records |
+| [.cursor/rules/](.cursor/rules/) | Cursor project rules |
+| [.cursor/skills/](.cursor/skills/) | Content update + Pages deploy skills |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Routes
 
-## Deploy on Vercel
+| Path | Status |
+|------|--------|
+| `/`, `/portfolio` | Canonical portfolio (EN / ID / JP) |
+| `/dashboard` | Legacy resume UI |
+| `/project` | Work-in-progress stub |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Content workflow
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Edit `src/constants/locale-resume/{en,id,jp}.ts` for resume data.
+2. Edit `src/constants/locale-ui/{en,id,jp}.ts` for chrome strings.
+3. Keep all three locales structurally in sync.
+4. SEO / Person schema: `src/app/layout.tsx`.
+
+## Local development
+
+```bash
+npm install
+npm run dev      # Turbopack
+npm run build
+npm run lint
+```
+
+Open [http://localhost:3000](http://localhost:3000). Production builds publish from `master` via [`.github/workflows/nextjs.yml`](.github/workflows/nextjs.yml).
+
+## About (short)
+
+Software engineer with experience across enterprise and startup product teams (Telkom Indonesia, Oromico, Addon Tech). Full narrative lives on the site.
+
+**Links:** [LinkedIn](https://www.linkedin.com/in/firnaz-luztian-adiansyah-6526b8194/) · [GitHub](https://github.com/firnazluztian)

@@ -1,0 +1,13 @@
+---
+description: Locale resume and UI content pack rules
+globs: src/constants/locale-*/**/*
+alwaysApply: false
+---
+
+# i18n content packs
+
+- Resume: `src/constants/locale-resume/{en,id,jp}.ts`
+- UI: `src/constants/locale-ui/{en,id,jp}.ts`
+- When adding fields/sections, update **all three** locales in the same change.
+- Do not put new portfolio content only in `src/constants/resume.ts` (legacy dashboard).
+- View-model mapping: `src/containers/portfolio/schema.ts`.

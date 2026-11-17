@@ -1,0 +1,26 @@
+# Firnaz Luztian Adiansyah — portfolio full summary
+
+> Static personal site showcasing frontend engineering work. Content is authored in EN/ID/JP locale packs; `/` and `/portfolio` are canonical. `/dashboard` and `/project` are legacy/WIP.
+
+## About the engineer
+
+Software engineer with experience across enterprise and startup product teams (including Telkom Indonesia, Oromico, Addon Tech). Focus areas: React/Next.js, TypeScript, performance, design systems, and AI-assisted product work.
+
+## Site architecture
+
+- Next.js 15 App Router under `src/app/`
+- Feature UI in `src/containers/portfolio/`
+- Resume content: `src/constants/locale-resume/{en,id,jp}.ts`
+- UI chrome: `src/constants/locale-ui/{en,id,jp}.ts`
+- Deploy: GitHub Actions → static `./out` on GitHub Pages (no Node server APIs)
+
+## Sibling projects (AI)
+
+- Vinove — cinematic companion chat; SAFE_MODE classifier guardrails; encrypted messages
+- Vibe House — paste URL → PSI + vibe-coded estimate; SSRF + untrusted HTML hardening; signal-keyed rubric retrieval
+
+## Key URLs
+
+- Site: https://firnazluztian.github.io
+- Agents index: https://firnazluztian.github.io/llms.txt
+- Repo: https://github.com/firnazluztian/firnazluztian.github.io
